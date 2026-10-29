@@ -36,18 +36,24 @@ function AppBlock({ app }: { app: AppEntry }) {
               <Play size={16} /> Google Play
             </a>
           )}
-          {app.appStore && (
+          {app.appStore ? (
             <a href={app.appStore} target="_blank" rel="noopener noreferrer" className={storeLink}>
               <ExternalLink size={16} /> App Store
             </a>
+          ) : (
+            <span className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium border border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400">
+              App Store em breve
+            </span>
           )}
           {app.site && (
             <a href={app.site} target="_blank" rel="noopener noreferrer" className={storeLink}>
               <ExternalLink size={16} /> Site
             </a>
           )}
-          {!app.playStore && !app.appStore && !app.site && (
-            <span className="text-sm text-gray-500 dark:text-gray-400">Disponível nas lojas em breve.</span>
+          {!app.playStore && (
+            <span className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium border border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400">
+              Google Play em breve
+            </span>
           )}
         </div>
 
