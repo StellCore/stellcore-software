@@ -32,13 +32,13 @@ export default function Footer() {
               <a href="https://www.linkedin.com/company/stellcore-software/about/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-blue-400 transition-colors">
+                className="text-gray-400 hover:text-pink-400 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>

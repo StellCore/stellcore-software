@@ -1,5 +1,7 @@
 import orcamentos from '@/images/projects/orcamentos-online.svg';
 import stock from '@/images/projects/stock-regulator.svg';
+import unique from '@/images/projects/unique-combinations.svg';
+import estofaria from '@/images/projects/estofaria-cardoso.svg';
 
 const images = import.meta.glob('@/images/apps/**/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
 
@@ -156,6 +158,7 @@ export const apps: AppEntry[] = [
 export const otherProjects = [
   {
     name: 'Unique Combinations',
+    image: unique,
     description:
       'Landing page comercial do Unique Combinations, app Windows que ajuda empresas a melhorar seus resultados com estatísticas precisas.',
     tags: ['Web', 'Landing page'],
@@ -166,6 +169,7 @@ export const otherProjects = [
   },
   {
     name: 'Estofaria Cardoso',
+    image: estofaria,
     description: 'Site institucional em Flutter Web para uma estofaria de Curitiba, com seções em parallax e formulário de contato.',
     tags: ['Web', 'Site institucional'],
     links: [] as { label: string; href: string }[],

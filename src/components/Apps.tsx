@@ -2,7 +2,7 @@ import { ExternalLink, Play } from 'lucide-react';
 import { apps, otherProjects, type AppEntry } from '@/data/apps';
 
 const storeLink =
-  'inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700';
+  'inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700';
 
 function AppBlock({ app }: { app: AppEntry }) {
   const available = app.status === 'Disponível';
@@ -92,12 +92,12 @@ function AppBlock({ app }: { app: AppEntry }) {
         {(app.privacy || app.terms) && (
           <div className="flex flex-wrap gap-4 text-sm font-medium">
             {app.privacy && (
-              <a href={app.privacy} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+              <a href={app.privacy} target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">
                 Política de privacidade
               </a>
             )}
             {app.terms && (
-              <a href={app.terms} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+              <a href={app.terms} target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">
                 Excluir conta e dados
               </a>
             )}
@@ -110,11 +110,11 @@ function AppBlock({ app }: { app: AppEntry }) {
 
 export default function Apps() {
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 dark:from-gray-900 dark:to-indigo-950">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-purple-50 dark:from-gray-900 dark:to-purple-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Nossos <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">apps</span>
+            Nossos <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">apps</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Apps que a StellCore desenvolve e publica.
@@ -130,10 +130,12 @@ export default function Apps() {
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-20 mb-6 text-center">Sites e outros projetos</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {otherProjects.map((p) => (
-            <div key={p.name} className="rounded-xl bg-white dark:bg-gray-800 shadow p-6 flex flex-col gap-3">
+            <div key={p.name} className="rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow flex flex-col">
+              <img src={p.image} alt="" loading="lazy" className="w-full aspect-[3/2] object-cover" />
+              <div className="p-6 flex flex-col gap-3">
               <div className="flex flex-wrap gap-2">
                 {p.tags.map((t) => (
-                  <span key={t} className="text-xs font-medium px-2 py-1 rounded-full bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                  <span key={t} className="text-xs font-medium px-2 py-1 rounded-full bg-purple-50 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">
                     {t}
                   </span>
                 ))}
@@ -143,12 +145,13 @@ export default function Apps() {
               {p.links.length > 0 && (
                 <div className="flex gap-4 text-sm font-medium">
                   {p.links.map((l) => (
-                    <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                    <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">
                       {l.label}
                     </a>
                   ))}
                 </div>
               )}
+              </div>
             </div>
           ))}
         </div>
