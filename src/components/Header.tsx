@@ -31,19 +31,19 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 hover:text-purple-600 transition-colors"
             >
               Início
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 hover:text-purple-600 transition-colors"
             >
               Apps
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-pink-400 transition-colors"
             >
               Contato
             </button>
@@ -65,19 +65,19 @@ export default function Header() {
             <div className="flex flex-col space-y-4 pt-4">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-left text-gray-700 hover:text-purple-600 transition-colors"
               >
                 Início
               </button>
               <button 
                 onClick={() => scrollToSection('projects')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-left text-gray-700 hover:text-purple-600 transition-colors"
               >
                 Apps
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-left text-gray-700 hover:text-purple-600 transition-colors"
               >
                 Contato
               </button>
