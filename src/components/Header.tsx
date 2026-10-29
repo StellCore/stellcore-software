@@ -50,14 +50,14 @@ export default function Header() {
             >
               {t.nav.contact}
             </button>
-            <LanguageToggle />
             <ThemeToggle />
+            <LanguageToggle />
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-1">
-            <LanguageToggle />
             <ThemeToggle />
+            <LanguageToggle />
             <button className="p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
