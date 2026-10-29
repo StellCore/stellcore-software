@@ -1,60 +1,35 @@
-# StellCore Website Project
+# StellCore Software
 
-Welcome to the StellCore website project! This document provides an overview of the project structure, setup instructions, and usage guidelines.
+Site da StellCore: portfólio dos apps que a empresa desenvolve e publica (Android e iOS), com contato.
 
-## Project Structure
+**Site:** https://bruno-dall.github.io/stellcore-software/
 
-The project is organized as follows:
+![Topo do site](docs/preview-topo.webp)
 
+![Seção de apps](docs/preview-apps.webp)
+
+## O que tem no site
+
+- Um bloco por app, com capa, ícone, selo "Disponível" ou "Em breve", botões das lojas, vídeo com transcrição (opcional), galeria de screenshots com legendas, descrição e links de privacidade.
+- Seção de sites e outros projetos.
+- Contato.
+
+## Adicionar ou editar um app
+
+Os apps ficam em [src/data/apps.ts](src/data/apps.ts). Cada entrada tem nome, categoria, status, links das lojas (`playStore`, `appStore`), screenshots, descrição e bullets. As imagens ficam em `src/images/apps/<app>/`.
+
+## Rodando
+
+```bash
+npm ci
+npm run dev      # http://localhost:5173
+npm run build    # gera dist/
 ```
-StellCore
-├── public
-│   ├── index.html          # Main HTML document
-│   ├── css
-│   │   └── styles.css      # Styles for the website
-│   └── js
-│       └── scripts.js      # JavaScript code for interactivity
-├── src
-│   ├── components
-│   │   └── Header.js       # Header component
-│   ├── pages
-│   │   └── Home.js         # Home page component
-│   └── utils
-│       └── helpers.js      # Utility functions
-├── package.json             # npm configuration file
-├── .gitignore               # Git ignore file
-└── README.md                # Project documentation
-```
 
-## Setup Instructions
+## Deploy
 
-1. **Clone the repository**:
-   ```
-   git clone <repository-url>
-   cd StellCore
-   ```
+Todo push na `main` publica no GitHub Pages pelo workflow [deploy.yml](.github/workflows/deploy.yml). A versão anterior do site está na branch `legacy/versao-atual`.
 
-2. **Install dependencies**:
-   ```
-   npm install
-   ```
+## Stack
 
-3. **Run the application**:
-   ```
-   npm start
-   ```
-
-## Usage
-
-- Open your browser and navigate to `http://localhost:3000` to view the website.
-- The main content is rendered in the Home component, and the Header component provides navigation.
-
-## Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-Thank you for using StellCore!
+Vite, React, TypeScript, Tailwind CSS e shadcn/ui.

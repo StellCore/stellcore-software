@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -26,8 +26,7 @@ export default function Footer() {
               <span className="text-xl font-bold">StellCore Software</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Transformamos suas ideias em soluções tecnológicas inovadoras. 
-              Desenvolvimento de software profissional e sob medida.
+              Criamos e publicamos apps para o seu dia a dia e para o seu negócio.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/company/stellcore-software/about/?viewAsMember=true"
@@ -59,18 +58,10 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('services')}
+                  onClick={() => scrollToSection('projects')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Serviços
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Sobre
+                  Apps
                 </button>
               </li>
               <li>
@@ -84,18 +75,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Serviços</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>Desenvolvimento Web</li>
-              <li>Aplicações Mobile</li>
-              <li>Sistemas Corporativos</li>
-              <li>Cloud & DevOps</li>
-              <li>Consultoria Técnica</li>
-              <li>Equipes Dedicadas</li>
-            </ul>
-          </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
