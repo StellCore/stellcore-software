@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import logo from '@/images/logo.jpeg';
 
 export default function Footer() {
@@ -35,11 +35,10 @@ export default function Footer() {
                 className="text-gray-400 hover:text-pink-400 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
+              <a href="https://github.com/StellCore"
+                target="_blank"
+                rel="noopener noreferrer" className="text-gray-400 hover:text-pink-400 transition-colors">
                 <Github className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
-                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -101,14 +100,6 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               © {currentYear} StellCore Software. Todos os direitos reservados.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Política de Privacidade
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Termos de Uso
-              </a>
-            </div>
           </div>
         </div>
       </div>
