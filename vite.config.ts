@@ -4,7 +4,7 @@ import path from "path";
 import { viteSourceLocator } from "@metagptx/vite-plugin-source-locator";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/stellcore_software/" : "/",
+  base: mode === "production" ? "/stellcore-software/" : "/",
   plugins: [
     viteSourceLocator({
       prefix: "mgx",
