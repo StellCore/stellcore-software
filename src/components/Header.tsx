@@ -37,16 +37,10 @@ export default function Header() {
               Início
             </button>
             <button 
-              onClick={() => scrollToSection('services')}
+              onClick={() => scrollToSection('projects')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
-              Serviços
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Sobre
+              Apps
             </button>
             <button
               onClick={() => scrollToSection('contact')}
@@ -83,16 +77,10 @@ export default function Header() {
                 Início
               </button>
               <button 
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection('projects')}
                 className="text-left text-gray-700 hover:text-blue-600 transition-colors"
               >
-                Serviços
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Sobre
+                Apps
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
