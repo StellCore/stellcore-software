@@ -13,10 +13,11 @@ Site da StellCore: portfólio dos apps que a empresa desenvolve e publica (Andro
 - Um bloco por app, com capa, ícone, selo "Disponível" ou "Em breve", botões das lojas, vídeo com transcrição (opcional), galeria de screenshots com legendas, descrição e links de privacidade.
 - Seção de sites e outros projetos.
 - Contato.
+- Versão em português e inglês, com botão de idioma ao lado do de tema (a escolha fica salva no navegador).
 
 ## Adicionar ou editar um app
 
-Os apps ficam em [src/data/apps.ts](src/data/apps.ts). Cada entrada tem nome, categoria, status, links das lojas (`playStore`, `appStore`), screenshots, descrição e bullets. As imagens ficam em `src/images/apps/<app>/`.
+Os apps ficam em [src/data/apps.ts](src/data/apps.ts) e os textos do site em [src/i18n.tsx](src/i18n.tsx), sempre em português e inglês. Cada app tem nome, categoria, status, links das lojas (`playStore`, `appStore`), screenshots, descrição e bullets. As imagens ficam em `src/images/apps/<app>/`.
 
 ## Rodando
 

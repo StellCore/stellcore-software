@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
+import { useLang } from '@/i18n';
 
 export default function Hero() {
+  const { t } = useLang();
   const scrollToApps = () => {
     const element = document.getElementById('projects');
     if (element) {
@@ -22,9 +24,9 @@ export default function Hero() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Criamos e publicamos apps para o seu dia a dia e para o seu negócio.
+              {t.hero.line1}
               <br />
-              Conheça os nossos produtos.
+              {t.hero.line2}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -34,7 +36,7 @@ export default function Hero() {
                 onClick={scrollToApps}
                 className="text-lg px-8 py-6 border-2 hover:bg-gray-50"
               >
-                Ver os apps
+                {t.hero.cta}
               </Button>
             </div>
           </div>

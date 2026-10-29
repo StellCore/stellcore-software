@@ -1,43 +1,22 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { useLang } from '@/i18n';
 
 export default function Contact() {
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      info: 'stellcoresoftware@gmail.com',
-      description: 'Resposta em até 24 horas'
-    },
-    {
-      icon: Phone,
-      title: 'Telefone',
-      info: '+55 (41) 99674-5201',
-      description: 'Seg à Sex, 9h às 18h'
-    },
-    {
-      icon: MapPin,
-      title: 'Localização',
-      info: 'Curitiba, PR - Brasil',
-      description: 'Atendimento remoto e presencial'
-    },
-    {
-      icon: Clock,
-      title: 'Horário',
-      info: '9h às 18h',
-      description: 'Segunda à Sexta-feira'
-    }
-  ];
+  const { t } = useLang();
+  const icons = [Mail, Phone, MapPin, Clock];
+  const infos = ['stellcoresoftware@gmail.com', '+55 (41) 99674-5201', t.contact.location, t.contact.hours];
+  const contactInfo = t.contact.items.map((item, i) => ({ icon: icons[i], info: infos[i], ...item }));
 
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Entre em <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Contato</span>
+            {t.contact.titleStart} <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{t.contact.titleEnd}</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Dúvidas sobre os nossos apps ou quer conversar sobre um projeto? Fale com a gente.
+            {t.contact.subtitle}
           </p>
         </div>
 
