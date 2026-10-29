@@ -2,7 +2,7 @@
 
 Site da StellCore: portfólio dos apps que a empresa desenvolve e publica (Android e iOS), com contato.
 
-**Site:** https://bruno-dall.github.io/stellcore-software/
+**Site:** https://stellcore.github.io/stellcore-software/
 
 ![Topo do site](docs/preview-topo.webp)
 
