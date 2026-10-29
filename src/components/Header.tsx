@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
+import { useLang } from '@/i18n';
 import logo from '@/images/logo.jpeg';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLang();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -33,30 +36,32 @@ export default function Header() {
               onClick={() => scrollToSection('home')}
               className="text-gray-700 hover:text-purple-600 transition-colors"
             >
-              Início
+              {t.nav.home}
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
               className="text-gray-700 hover:text-purple-600 transition-colors"
             >
-              Apps
+              {t.nav.apps}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-pink-400 transition-colors"
             >
-              Contato
+              {t.nav.contact}
             </button>
+            <LanguageToggle />
             <ThemeToggle />
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-1">
+            <LanguageToggle />
+            <ThemeToggle />
+            <button className="p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -67,19 +72,19 @@ export default function Header() {
                 onClick={() => scrollToSection('home')}
                 className="text-left text-gray-700 hover:text-purple-600 transition-colors"
               >
-                Início
+                {t.nav.home}
               </button>
               <button 
                 onClick={() => scrollToSection('projects')}
                 className="text-left text-gray-700 hover:text-purple-600 transition-colors"
               >
-                Apps
+                {t.nav.apps}
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="text-left text-gray-700 hover:text-purple-600 transition-colors"
               >
-                Contato
+                {t.nav.contact}
               </button>
             </div>
           </nav>

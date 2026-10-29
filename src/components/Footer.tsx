@@ -1,7 +1,9 @@
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
 import logo from '@/images/logo.jpeg';
+import { useLang } from '@/i18n';
 
 export default function Footer() {
+  const { t } = useLang();
   const currentYear = new Date().getFullYear();
 
   const scrollToSection = (sectionId: string) => {
@@ -26,7 +28,7 @@ export default function Footer() {
               <span className="text-xl font-bold">StellCore Software</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Criamos e publicamos apps para o seu dia a dia e para o seu negócio.
+              {t.footer.about}
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/company/stellcore-software/about/?viewAsMember=true"
@@ -46,14 +48,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Links Rápidos</h3>
+            <h3 className="text-lg font-semibold">{t.footer.quickLinks}</h3>
             <ul className="space-y-2">
               <li>
                 <button 
                   onClick={() => scrollToSection('home')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Início
+                  {t.nav.home}
                 </button>
               </li>
               <li>
@@ -61,7 +63,7 @@ export default function Footer() {
                   onClick={() => scrollToSection('projects')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Apps
+                  {t.nav.apps}
                 </button>
               </li>
               <li>
@@ -69,7 +71,7 @@ export default function Footer() {
                   onClick={() => scrollToSection('contact')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Contato
+                  {t.nav.contact}
                 </button>
               </li>
             </ul>
@@ -78,7 +80,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contato</h3>
+            <h3 className="text-lg font-semibold">{t.footer.contact}</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-400">
                 <Mail className="h-4 w-4" />
@@ -90,7 +92,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
                 <MapPin className="h-4 w-4" />
-                <span>Curitiba, PR - Brasil</span>
+                <span>{t.contact.location}</span>
               </div>
             </div>
           </div>
@@ -99,7 +101,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} StellCore Software. Todos os direitos reservados.
+              © {currentYear} StellCore Software. {t.footer.rights}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">

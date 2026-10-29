@@ -1,11 +1,13 @@
 import { ExternalLink, Play } from 'lucide-react';
 import { apps, otherProjects, type AppEntry } from '@/data/apps';
+import { useLang } from '@/i18n';
 
 const storeLink =
   'inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700';
 
 function AppBlock({ app }: { app: AppEntry }) {
-  const available = app.status === 'Disponível';
+  const { lang, t } = useLang();
+  const available = app.status === 'available';
   return (
     <article id={app.id} className="scroll-mt-24 rounded-2xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg">
       <div className="relative">
@@ -15,20 +17,20 @@ function AppBlock({ app }: { app: AppEntry }) {
             available ? 'bg-emerald-500 text-white' : 'bg-amber-400 text-gray-900'
           }`}
         >
-          {app.status}
+          {available ? t.apps.available : t.apps.soon}
         </span>
       </div>
 
       <div className="p-6 md:p-8 flex flex-col gap-6">
         <header className="flex items-center gap-4">
-          {app.icon && <img src={app.icon} alt={`Ícone do ${app.name}`} className="w-16 h-16 rounded-2xl shadow" />}
+          {app.icon && <img src={app.icon} alt={`${t.apps.iconOf} ${app.name}`} className="w-16 h-16 rounded-2xl shadow" />}
           <div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{app.name}</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{app.category}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{app.category[lang]}</p>
           </div>
         </header>
 
-        <p className="text-lg text-gray-700 dark:text-gray-300">{app.tagline}</p>
+        <p className="text-lg text-gray-700 dark:text-gray-300">{app.tagline[lang]}</p>
 
         <div className="flex flex-wrap gap-3">
           {app.playStore && (
@@ -42,17 +44,17 @@ function AppBlock({ app }: { app: AppEntry }) {
             </a>
           ) : (
             <span className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium border border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400">
-              App Store em breve
+              {t.apps.appStoreSoon}
             </span>
           )}
           {app.site && (
             <a href={app.site} target="_blank" rel="noopener noreferrer" className={storeLink}>
-              <ExternalLink size={16} /> Site
+              <ExternalLink size={16} /> {t.apps.site}
             </a>
           )}
           {!app.playStore && (
             <span className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium border border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400">
-              Google Play em breve
+              {t.apps.playSoon}
             </span>
           )}
         </div>
@@ -63,27 +65,27 @@ function AppBlock({ app }: { app: AppEntry }) {
               <source src={app.video.src} type="video/mp4" />
             </video>
             <details className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              <summary className="cursor-pointer font-medium">Transcrição do vídeo</summary>
-              <p className="mt-2 whitespace-pre-line">{app.video.transcript}</p>
+              <summary className="cursor-pointer font-medium">{t.apps.transcript}</summary>
+              <p className="mt-2 whitespace-pre-line">{app.video.transcript[lang]}</p>
             </details>
           </figure>
         )}
 
         {app.screenshots.length > 0 && (
-          <div className="flex gap-4 overflow-x-auto snap-x pb-2" role="list" aria-label={`Capturas de tela do ${app.name}`}>
+          <div className="flex gap-4 overflow-x-auto snap-x pb-2" role="list" aria-label={`${t.apps.screenshotsOf} ${app.name}`}>
             {app.screenshots.map((s) => (
-              <figure key={s.caption} role="listitem" className="snap-start shrink-0 w-44">
-                <img src={s.src} alt={s.caption} loading="lazy" className="w-full rounded-xl shadow" />
-                <figcaption className="mt-2 text-xs text-gray-600 dark:text-gray-400">{s.caption}</figcaption>
+              <figure key={s.src} role="listitem" className="snap-start shrink-0 w-44">
+                <img src={s.src} alt={s.caption[lang]} loading="lazy" className="w-full rounded-xl shadow" />
+                <figcaption className="mt-2 text-xs text-gray-600 dark:text-gray-400">{s.caption[lang]}</figcaption>
               </figure>
             ))}
           </div>
         )}
 
         <div>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.description}</p>
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.description[lang]}</p>
           <ul className="mt-4 list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400">
-            {app.features.map((f) => (
+            {app.features[lang].map((f) => (
               <li key={f}>{f}</li>
             ))}
           </ul>
@@ -93,12 +95,12 @@ function AppBlock({ app }: { app: AppEntry }) {
           <div className="flex flex-wrap gap-4 text-sm font-medium">
             {app.privacy && (
               <a href={app.privacy} target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">
-                Política de privacidade
+                {t.apps.privacy}
               </a>
             )}
             {app.terms && (
               <a href={app.terms} target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">
-                Excluir conta e dados
+                {t.apps.deleteAccount}
               </a>
             )}
           </div>
@@ -109,15 +111,16 @@ function AppBlock({ app }: { app: AppEntry }) {
 }
 
 export default function Apps() {
+  const { lang, t } = useLang();
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-purple-50 dark:from-gray-900 dark:to-purple-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Nossos <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">apps</span>
+            {t.apps.titleStart} <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{t.apps.titleEnd}</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Apps que a StellCore desenvolve e publica.
+            {t.apps.subtitle}
           </p>
         </div>
 
@@ -127,26 +130,26 @@ export default function Apps() {
           ))}
         </div>
 
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-20 mb-6 text-center">Sites e outros projetos</h3>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-20 mb-6 text-center">{t.apps.others}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {otherProjects.map((p) => (
             <div key={p.name} className="rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow flex flex-col">
               <img src={p.image} alt="" loading="lazy" className="w-full aspect-[3/2] object-cover" />
               <div className="p-6 flex flex-col gap-3">
               <div className="flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <span key={t} className="text-xs font-medium px-2 py-1 rounded-full bg-purple-50 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">
-                    {t}
+                {p.tags[lang].map((tag) => (
+                  <span key={tag} className="text-xs font-medium px-2 py-1 rounded-full bg-purple-50 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">
+                    {tag}
                   </span>
                 ))}
               </div>
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{p.name}</h4>
-              <p className="text-gray-600 dark:text-gray-400">{p.description}</p>
+              <p className="text-gray-600 dark:text-gray-400">{p.description[lang]}</p>
               {p.links.length > 0 && (
                 <div className="flex gap-4 text-sm font-medium">
                   {p.links.map((l) => (
                     <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">
-                      {l.label}
+                      {l.label === 'site' ? t.apps.site : t.apps.code}
                     </a>
                   ))}
                 </div>
