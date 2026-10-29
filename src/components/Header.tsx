@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import logo from '@/images/logo.jpeg';
@@ -48,12 +47,6 @@ export default function Header() {
             >
               Contato
             </button>
-            <Button
-              onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
-            >
-              Solicitar Orçamento
-            </Button>
             <ThemeToggle />
           </nav>
 
@@ -88,12 +81,6 @@ export default function Header() {
               >
                 Contato
               </button>
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 w-full"
-              >
-                Solicitar Orçamento
-              </Button>
             </div>
           </nav>
         )}
