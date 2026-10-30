@@ -1,4 +1,3 @@
-import orcamentos from '@/images/projects/orcamentos-online.svg';
 import stock from '@/images/projects/stock-regulator.svg';
 import unique from '@/images/projects/unique-combinations.svg';
 import estofaria from '@/images/projects/estofaria-cardoso.svg';
@@ -191,29 +190,40 @@ export const apps: AppEntry[] = [
     id: 'orcamentos-online',
     name: 'Orçamentos Online',
     tagline: { pt: 'Monte o orçamento e envie o PDF pronto.', en: 'Build the quote and send the PDF.' },
-    category: { pt: 'Negócios · Android e iOS', en: 'Business · Android and iOS' },
+    category: { pt: 'Negócios · Android', en: 'Business · Android' },
     status: 'available',
-    cover: orcamentos,
+    icon: img('orcamentos-online', 'icone_512'),
+    cover: img('orcamentos-online', 'destaque_1024x500'),
     playStore: 'https://play.google.com/store/apps/details?id=com.stellcore.orcamento',
-    screenshots: [],
+    screenshots: [
+      { src: img('orcamentos-online', 'captura_1_orcamento'), caption: { pt: 'Monte o orçamento em poucos toques', en: 'Build a quote in a few taps' } },
+      { src: img('orcamentos-online', 'captura_2_orcamentos'), caption: { pt: 'Todos os seus orçamentos organizados', en: 'All your quotes organized' } },
+      { src: img('orcamentos-online', 'captura_3_clientes'), caption: { pt: 'Cadastre seus clientes', en: 'Register your clients' } },
+      { src: img('orcamentos-online', 'captura_4_empresas'), caption: { pt: 'Várias empresas, cada uma com seu logo', en: 'Several companies, each with its own logo' } },
+    ],
     description: {
-      pt: 'App Flutter para cadastrar empresas e clientes e gerar orçamentos em PDF, prontos para imprimir ou compartilhar. Tudo fica salvo no aparelho, funciona offline.',
-      en: 'Flutter app to register companies and clients and generate PDF quotes, ready to print or share. Everything is stored on the device and works offline.',
+      pt: 'Para quem presta serviço e precisa orçar rápido: escolha o cliente, a empresa que está emitindo, adicione os itens e gere o PDF pronto para enviar. Tudo fica salvo no aparelho e funciona sem internet, sem conta nem cadastro.',
+      en: 'For service providers who need to quote fast: pick the client and the issuing company, add the items and generate the PDF, ready to send. Everything is stored on the device and works offline, with no account or sign-up.',
     },
     features: {
       pt: [
-        'Cadastro de uma ou mais empresas emissoras, com logo',
-        'Clientes com validação e máscara de CPF/CNPJ e telefone',
-        'Orçamentos com itens, quantidades e valores',
-        'PDF para compartilhar ou imprimir',
+        'Itens com descrição, quantidade e valor, com o total calculado na hora',
+        'Lista de orçamentos com itens, total e data, e edição quando precisar ajustar',
+        'PDF com o logo da empresa para visualizar, compartilhar ou imprimir',
+        'Clientes com máscara e validação de CPF/CNPJ, sem duplicidade',
+        'Uma ou mais empresas emissoras, com logo, CNPJ e contatos',
+        'Dados só no aparelho, sem conta e sem anúncios',
       ],
       en: [
-        'One or more issuing companies, with logo',
-        'Clients with CPF/CNPJ and phone validation and masks',
-        'Quotes with items, quantities and prices',
-        'PDF to share or print',
+        'Items with description, quantity and price, with the total calculated instantly',
+        'Quote list with items, total and date, and editing when you need to adjust',
+        'PDF with the company logo to preview, share or print',
+        'Clients with CPF/CNPJ masks and validation, no duplicates',
+        'One or more issuing companies, with logo, tax ID and contacts',
+        'Data stays on the device, no account and no ads',
       ],
     },
+    privacy: `${import.meta.env.BASE_URL}orcamentos-online/privacidade.html`,
   },
   {
     id: 'stock-regulator',
